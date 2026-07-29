@@ -55,28 +55,7 @@ def extraer_lemmas(doc_or_sent, filtrar_longitud=False):
     ]
 
 # ------------------------------------------------------------
-# 3. ENTRADA DE DATOS (SIDEBAR)
-# ------------------------------------------------------------
-st.sidebar.header("📥 Fuente de Datos")
-opcion_entrada = st.sidebar.radio("Selecciona origen del texto:", ["Cargar archivo .txt", "Ingresar texto libre"])
 
-texto_raw = ""
-
-if opcion_entrada == "Cargar archivo .txt":
-    uploaded_file = st.sidebar.file_uploader("Sube tu archivo .txt", type=["txt"])
-    if uploaded_file is not None:
-        texto_raw = uploaded_file.read().decode("utf-8")
-    else:
-        # Intenta leer un archivo local por defecto si existe
-        try:
-            with open('texto.txt', 'r', encoding='utf-8') as f:
-                texto_raw = f.read()
-            st.sidebar.info("Cargando 'texto.txt' por defecto.")
-        except FileNotFoundError:
-            st.sidebar.warning("Sube un archivo para comenzar.")
-
-else:
-    texto_raw = st.sidebar.text_area("Pega el texto a analizar aquí:", height=200)
 
 # ------------------------------------------------------------
 # 4. PROCESAMIENTO Y DASHBOARD
