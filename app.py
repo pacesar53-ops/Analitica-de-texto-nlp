@@ -5,7 +5,6 @@ import seaborn as sns
 from collections import Counter
 import spacy
 from wordcloud import WordCloud
-import spacy
 from spacy.cli import download
 # ------------------------------------------------------------
 # CONFIGURACIÓN DE PÁGINA STREAMLIT
