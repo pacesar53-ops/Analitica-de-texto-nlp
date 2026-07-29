@@ -5,7 +5,8 @@ import seaborn as sns
 from collections import Counter
 import spacy
 from wordcloud import WordCloud
-
+import spacy
+from spacy.cli import download
 # ------------------------------------------------------------
 # CONFIGURACIÓN DE PÁGINA STREAMLIT
 # ------------------------------------------------------------
@@ -26,8 +27,8 @@ def load_spacy():
     try:
         return spacy.load('es_core_news_sm')
     except OSError:
-        import subprocess
-        subprocess.run(['python', '-m', 'spacy', 'download', 'es_core_news_sm'])
+        # Descarga el modelo directamente usando la herramienta oficial de spaCy
+        download('es_core_news_sm')
         return spacy.load('es_core_news_sm')
 
 nlp = load_spacy()
